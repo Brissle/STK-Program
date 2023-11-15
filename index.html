@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>STK Program</title>
+</head>
+<body>
+    <header>
+        <h1>STK Program</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Sök...">
+            <button onclick="searchPrograms()">Sök</button>
+            <button onclick="clearProgram('Radera program')">Radera program</button>
+        </div>
+        <div id="filterButtons">
+            <button class="filter-button" data-category="all" onclick="filterPrograms('all')">Alla</button>
+            <button class="filter-button" data-category="Film" onclick="filterPrograms('Film')">Filmer</button>
+            <button class="filter-button" data-category="TV-serie" onclick="filterPrograms('TV-serie')">TV-serier</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="addProgramForm">
+            <h2>Lägg till TV-program</h2>
+            <form onsubmit="addProgram(event)">
+                <label for="title">Titel:</label>
+                <input type="text" id="title" required>
+
+                <label for="description">Beskrivning:</label>
+                <textarea id="description" required></textarea>
+
+                <label for="ageLimit">Åldersgräns:</label>
+                <input type="number" id="ageLimit" required>
+
+                <label for="imageUrl">Bild-URL:</label>
+                <input type="text" id="imageUrl">
+
+                <label for="category">Kategori:</label>
+                <select id="category" required>
+                    <option value="Film">Film</option>
+                    <option value="TV-serie">TV-serie</option>
+                </select>
+
+                <button type="submit">Lägg till program</button>
+            </form>
+        </section>
+
+        <section id="Rekomenderas">
+            <div id="RekomenderasList"></div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
